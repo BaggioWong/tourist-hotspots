@@ -1,0 +1,54 @@
+<div class="panel panel-default panel-size wishlist-panel-size">
+  <div class="panel-heading wishlist-panel-overflow">
+    <span class="panel-title float-left">
+    	心愿单
+    </span>
+    <form class="form-no-margin float-right">
+  		<input type="text" class="form-control wishlist-search" placeholder="Search" ng-model="wishlistSearchField" ng-change="searchWishlist()">
+ 	</form>    	
+    	
+    
+  </div>
+  <!-- <div class="panel-body">
+
+  </div> -->
+    <ul class="list-group">
+	    <li class="list-group-item great-collapse-fix" ng-repeat="hotspot in hotspots" ng-show="!hotspot.deleted">
+	    	<div>
+		    	<p>
+		    		<span class="review-attribute-label">景点名字 &nbsp;</span>
+		    		<span class="glyphicon glyphicon-size glyphicon-pencil" ng-show="hotspot.editState && !hotspot.editingHotspot" ng-click="toggleEditingHotspot(hotspot)"></span>
+		    		<span class="glyphicon glyphicon-size glyphicon-ok" ng-show="hotspot.editState && hotspot.editingHotspot" ng-click="toggleEditingHotspot(hotspot); editName(hotspot.id, hotspot.name)"></span>
+		    	</p>
+		    	<p>
+		    		<span ng-show="!hotspot.editState || (hotspot.editState && !hotspot.editingHotspot)">{{hotspot.name}}</span>
+		    		<input type="text" class="form-control" aria-describedby="basic-addon1" ng-show="hotspot.editState && hotspot.editingHotspot" ng-model="hotspot.name">	
+		    	</p>
+		    	<p>
+		    		<span class="review-attribute-label">评论 &nbsp;</span>
+		    		<span class="glyphicon glyphicon-size glyphicon-pencil" ng-show="hotspot.editState && !hotspot.editingReview" ng-click="toggleEditingReview(hotspot)"></span>
+		    		<span class="glyphicon glyphicon-size glyphicon-ok" ng-show="hotspot.editState && hotspot.editingReview" ng-click="toggleEditingReview(hotspot); editReview(hotspot.id, hotspot.review)"></span>
+		    	</p>
+		    	<p>
+		    		<span ng-show="!hotspot.editState || (hotspot.editState && !hotspot.editingReview)">{{hotspot.review}}</span>
+		    		<textarea class="form-control" placeholder="Review" aria-describedby="basic-addon1" ng-show="hotspot.editState && hotspot.editingReview" ng-model="hotspot.review"></textarea>
+		    	</p>
+		    	<p>
+		    		<span class="review-attribute-label">总结 &nbsp;</span>
+		    		<span class="glyphicon glyphicon-size glyphicon-pencil" ng-show="hotspot.editState && !hotspot.editingSummary" ng-click="toggleEditingSummary(hotspot)"></span>
+		    		<span class="glyphicon glyphicon-size glyphicon-ok" ng-show="hotspot.editState && hotspot.editingSummary" ng-click="toggleEditingSummary(hotspot); editSummary(hotspot.id, hotspot.summary)"></span>
+		    	</p>
+		    	<p>
+		    		<span ng-show="!hotspot.editState || (hotspot.editState && !hotspot.editingSummary)">{{hotspot.summary}}</span>
+		    		<textarea class="form-control" placeholder="Summary" aria-describedby="basic-addon1" ng-show="hotspot.editState && hotspot.editingSummary" ng-model="hotspot.summary"></textarea>
+		    	</p>
+		    	
+	    	</div>
+	    	<div class="float-right">
+	    		<span>删除&nbsp;<span class="glyphicon glyphicon-size glyphicon-trash" ng-click="deleteHotspot(hotspot.id)"></span></span> 
+	    		<span>&nbsp;|&nbsp;</span> 
+	    		<span>编辑 &nbsp;<span class="glyphicon glyphicon-size glyphicon-pencil" ng-click="toggleEditState(hotspot)"></span></span>
+	    	</div>
+	    </li>
+	</ul>
+</div>

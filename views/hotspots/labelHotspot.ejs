@@ -1,0 +1,125 @@
+<div class="panel panel-default panel-size wishlist-panel-size">
+  <div class="panel-heading wishlist-panel-overflow">
+    <span class="panel-title float-left">
+    	标识景点
+    </span>
+    <div class="float-right">
+	  	<a ng-click="goToPrevious()"><span class="glyphicon glyphicon-menu-left"></span>返回</a>
+    </div>
+  </div>
+  <div>
+  	<ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options">
+  		<!-- activity markers and info windows -->
+		<ui-gmap-marker ng-repeat="activityMarker in activityMarkers" coords="activityMarker.coords" options="activityMarker.options" events="activityMarker.events" idkey="activityMarker.id">
+			<ui-gmap-window options="windowOptions" closeClick="closeClick()">
+                <div>{{activityMarker.username}}</div>
+            </ui-gmap-window>
+		</ui-gmap-marker>
+		<!-- place markers and info windows -->
+		<ui-gmap-marker ng-repeat="placeMarker in placeMarkers" coords="placeMarker.coords" options="placeMarker.options" events="placeMarker.events" idkey="placeMarker.id"></ui-gmap-marker>
+		<!-- recommendation markers and info windows -->
+		<ui-gmap-marker ng-repeat="recommendationMarker in recommendationMarkers" coords="recommendationMarker.coords" options="recommendationMarker.options" events="recommendationMarker.events" idkey="recommendationMarker.id"></ui-gmap-marker>
+  	</ui-gmap-google-map>
+  </div>
+  <ul class="list-group">
+	  <li class="list-group-item center-align-avatar">
+	  	<button class="btn btn-default" ng-click="toggleActivity()">活动&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-cutlery"></span></button>
+		<button class="btn btn-default" ng-click="togglePlace()">地方&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-tree-conifer"></span></button>
+		<button class="btn btn-default" ng-click="toggleRecommendations()">反馈&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-flash"></span></button>	  	
+	  </li>
+	  <!-- activity labels -->
+	  <li class="list-group-item great-collapse-fix" ng-show="labelsSelected[labels.activity]">
+	  	<span class="panel-title review-attribute-label">活动类型</span>
+	  	<table class="table label-table">
+		  	<tr>
+		  		<td><div class="marker red-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.RED)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.RED)}"></div></td>
+		  		<td><div class="marker orange-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.ORANGE)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.ORANGE)}"></div></td>
+		  		<td><div class="marker yellow-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.YELLOW)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.YELLOW)}"></div></td>
+		  		<td><div class="marker green-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.GREEN)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.GREEN)}"></div></td>
+		  	</tr>
+		  	<tr>
+		  		<td>运动</td>
+		  		<td>健身</td>
+		  		<td>交往</td>
+		  		<td>观光</td>
+		  	</tr>
+		  	<tr>
+		  		<td><div class="marker lime-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.LIME)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.LIME)}"></div></td>
+		  		<td><div class="marker light-blue-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.LIGHTBLUE)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.LIGHTBLUE)}"></div></td>
+		  		<td><div class="marker blue-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.BLUE)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.BLUE)}"></div></td>
+		  		<td><div class="marker violet-circle-marker" ng-click="addMarker(labels.activity, MARKER_COLORS.VIOLET)" ng-class="{'inactive-circle-marker': markerIsUsed(labels.activity, MARKER_COLORS.VIOLET)}"></div></td>
+		  	</tr>
+		  	<tr>
+		  		<td>休息</td>
+		  		<td>餐厅</td>
+		  		<td>博物馆</td>
+		  		<td>游乐园</td>
+		  	</tr>
+	  	</table>
+	  </li>
+	  <!-- place labels -->
+	  <li class="list-group-item great-collapse-fix" ng-show="labelsSelected[labels.place]">
+	  	<span class="panel-title review-attribute-label">地方类型</span>
+	  	<table class="table label-table">
+		  	<tr>
+		  		<td><div class="marker red-circle-marker"></div></td>
+		  		<td><div class="marker orange-circle-marker"></div></td>
+		  		<td><div class="marker yellow-circle-marker"></div></td>
+		  		<td><div class="marker green-circle-marker"></div></td>
+		  	</tr>
+		  	<tr>
+		  		<td>自然</td>
+		  		<td>健身</td>
+		  		<td>社交</td>
+		  		<td>动物</td>
+		  	</tr>
+		  	<tr>
+		  		<td><div class="marker lime-circle-marker"></div></td>
+		  		<td><div class="marker light-blue-circle-marker"></div></td>
+		  		<td><div class="marker blue-circle-marker"></div></td>
+		  		<td><div class="marker violet-circle-marker"></div></td>
+		  	</tr>
+		  	<tr>
+		  		<td>学术</td>
+		  		<td>休闲</td>
+		  		<td>宁静</td>
+		  		<td>餐饮</td>
+		  	</tr>
+	  	</table>
+	  </li>
+		<!-- recommendation labels -->
+	  <li class="list-group-item great-collapse-fix" ng-show="labelsSelected[labels.recommendations]">
+	  	<span class="panel-title review-attribute-label">推荐类型</span>
+	  	<table class="table label-table">
+		  	<tr>
+		  		<td><div class="marker red-circle-marker"></div></td>
+		  		<td><div class="marker orange-circle-marker"></div></td>
+		  		<td><div class="marker yellow-circle-marker"></div></td>
+		  		<td><div class="marker green-circle-marker"></div></td>
+		  	</tr>
+		  	<tr>
+		  		<td>增加空间</td>
+		  		<td>增加绿色空间</td>
+		  		<td>
+		  			<select class="form-control" ng-options="facility.name for facility in facilities" ng-model="facilitiesRecommendation">
+		  				<option value="">增加设施</option>
+		  			</select>
+		  		</td>
+		  		<td>改善交通</td>
+		  	</tr>
+		  	<tr>
+		  		<td><div class="marker lime-circle-marker"></div></td>
+		  		<td><div class="marker light-blue-circle-marker"></div></td>
+		  		<td><div class="marker blue-circle-marker"></div></td>
+		  		<td><div class="marker violet-circle-marker"></div></td>
+		  	</tr>
+		  	<tr>
+		  		<td>改善设施导航</td>
+		  		<td>人流控制</td>
+		  		<td>减低入场费</td>
+		  		<td>增长营业时间</td>
+		  	</tr>
+	  	</table>
+	  </li>
+  </ul>
+</div>

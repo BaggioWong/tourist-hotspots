@@ -1,0 +1,19 @@
+<div class="panel panel-default panel-size">
+  <div class="panel-heading">
+    <h3 class="panel-title">头照</h3>
+  </div>
+  <div class="panel-body center-align-avatar">
+  	<p><img src="{{avatarUrl()}}" class="avatar-dimensions" /></p>
+    <form name="avatarUploadForm">
+	     <p>
+	     	<input type="file" ngf-select class="btn btn-default center-file-chooser" ng-model="avatarFile" name="file"    
+         accept="image/*" ngf-max-size="2MB"> 
+         </p>
+         <p>
+			<img ng-show="avatarUploadForm.file.$valid" ngf-thumbnail="avatarFile" class="thumbnail avatar-thumbnail">
+         </p>
+         <button type="button" class="btn btn-default center-file-chooser" ng-click="changeAvatar()" uib-tooltip="Can't implement because can't upload file, can't even mock because HTML5 API doesn't offer filepath" tooltip-trigger="focus">提交</button>
+	</form>
+  </div>
+</div>
+

@@ -1,0 +1,32 @@
+<div class="panel panel-default panel-size wishlist-panel-size">
+  <div class="panel-heading wishlist-panel-overflow">
+    <span class="panel-title float-left">
+		路线规划    
+	</span>
+  </div>
+  <div>
+  	<ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options">
+  		<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+  	</ui-gmap-google-map>
+  	<div id="map"></div>
+  </div>
+  <ul class="list-group">
+	  <li class="list-group-item center-align-avatar great-collapse-fix">
+	  	<div class="route">
+	  		<button class="btn btn-default route-current-location" ng-click="setCoordinates()"><span class="glyphicon glyphicon-map-marker"></span></button>
+		  	<input type="text" placeholder="From" class="form-control route-searchbox" ng-model="destination.from" ng-focus="clearFrom()" ng-class="{'current-location-text': (destination.from == 'Current location')}"/>
+		  	<span class="glyphicon glyphicon-size glyphicon glyphicon-resize-horizontal route-swap" ng-click="swap()"></span>
+		  	<input type="text" placeholder="To" class="form-control route-searchbox" ng-model="destination.to" ng-focus="clearTo()" ng-class="{'current-location-text': (destination.to == 'Current location')}"/>
+		  	<button class="btn btn-default" ng-click="getDirections()">搜索路线</button>
+		  	<button class="btn btn-default" ng-click="showDetails()" ng-disabled="detailedDisabled">详细信息</button>
+	  	</div>
+
+		<div ng-show="routeUnsuccessful">
+			<div uib-alert class="alert-warning search-route-failed" close="closeAlert()" >{{alert.msg}}</div>
+		</div>
+	  </li>
+	  <li ng-show="showDetailed" class="no-bullet-decoration">
+		  <div id="detailedPanel" class="route-detailed-panel"></div>
+	  </li>	
+  </ul>
+</div>

@@ -1,0 +1,75 @@
+<html>
+<head>
+	<base href="/">
+	<!-- CSS -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/index.css" />
+
+	<!-- jQuery v1.9.1 -->
+	<script src="/external-scripts/jquery/jquery.js"></script>
+
+	<!-- For Google maps -->
+	<script src="/external-scripts/angular-google-maps/node_modules/lodash/lodash.js"></script>
+	<!-- Must be loaded prior to angular-google-maps.js -->
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyABK8ljExlpBO_y16BQA0InKOCwbYFuCws&libraries=place"></script>
+
+	<!-- Angular v1.5.8 -->
+	<script src="/external-scripts/angular/angular.js"></script>
+	<script src="/external-scripts/angular-animate/angular-animate.js"></script>
+	<script src="/external-scripts/angular-sanitize/angular-sanitize.js"></script>
+
+	<!-- Angular libraries -->
+	<script src="/external-scripts/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="/external-scripts/ng-file-upload/dist/ng-file-upload.js"></script>
+	<script src="/external-scripts/angular-google-maps/node_modules/angular-simple-logger/dist/angular-simple-logger.js"></script>
+	<script src="/external-scripts/angular-google-maps/dist/angular-google-maps.js"></script>
+
+	<!-- Bootstrap v3.3.7 --> 
+	<link rel="stylesheet" type="text/css" href="/external-scripts/bootstrap/dist/css/bootstrap.css" />
+	<script src="/external-scripts/bootstrap/dist/js/bootstrap.js"></script>
+
+	<script src="/external-scripts/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+	<!-- Javascript -->
+	<!-- 主要 -->
+	<script src="/javascripts/app.js"></script>
+	<script src="/javascripts/run.js"></script>
+	<script src="/javascripts/routes.js"></script>
+	<script src="/javascripts/directives.js"></script>
+	<script src="/javascripts/ReviewStarsFilter.js"></script>
+
+	<!-- 用户模块 -->
+	<script src="/javascripts/user/WishlistService.js"></script>
+	<script src="/javascripts/user/WishlistCtrl.js"></script>
+	<script src="/javascripts/user/AvatarCtrl.js"></script>
+	<script src="/javascripts/user/UserService.js"></script>
+	
+	<!-- 景点模块 -->
+	<script src="/javascripts/hotspots/HotspotsCtrl.js"></script>
+	<script src="/javascripts/hotspots/HotspotsService.js"></script>
+	<script src="/javascripts/hotspots/SingleHotspotCtrl.js"></script>
+	<script src="/javascripts/hotspots/ReviewHotspotModal.js"></script>
+	<script src="/javascripts/hotspots/ReportHotspotModal.js"></script>
+	<script src="/javascripts/hotspots/HotspotQuestionnaireModal.js"></script>
+	<script src="/javascripts/hotspots/LabelHotspotCtrl.js"></script>
+	<script src="/javascripts/hotspots/MovieModal.js"></script>
+	
+	<!-- 路线规划模块 -->
+	<script src="/javascripts/routes/RouteCtrl.js"></script>
+	
+	<!-- 搜索历史模块 -->
+	<script src="/javascripts/history/HistoryCtrl.js"></script>
+	<script src="/javascripts/history/HistoryService.js"></script>
+
+	<!-- 登陆注销模块 -->
+	<script src="/javascripts/account/LoginCtrl.js"></script>
+	<script src="/javascripts/account/LoginService.js"></script>
+	<script src="/javascripts/account/RegistrationCtrl.js"></script>
+	<script src="/javascripts/account/RegistrationService.js"></script>
+</head>
+
+<body ng-app="TouristHotspots">
+	<top-nav-bar></top-nav-bar>
+    <ui-view></ui-view>
+</body>
+</html>

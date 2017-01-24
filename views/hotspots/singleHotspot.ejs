@@ -1,0 +1,106 @@
+<div class="panel panel-default panel-size wishlist-panel-size">
+  <div class="panel-heading wishlist-panel-overflow">
+    <span class="panel-title float-left">
+    	{{hotspot.name}}
+    </span>
+    <div class="float-right">
+	    <button class="btn btn-default hotspots-filter" ng-class="{favourited: favouriteClicked}" ng-click="toggleFavourite()">收藏&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-heart"></span></button>
+	  	<button class="btn btn-default hotspots-filter" ng-class="{trailed: trailClicked}" ng-click="toggleTrail()">Trail&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-road"></span></button>
+	  	<button class="btn btn-default hotspots-filter" ng-class="{addedToWishlist: wishlistClicked}" ng-click="toggleWishlist()">心愿单&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-list"></span></button>
+	  	<button class="btn btn-default hotspots-filter" ng-class="{shared: shareClicked}" ng-click="toggleShare()">Share&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-share"></span></button>
+	  	<a ui-sref="hotspots"><span class="glyphicon glyphicon-menu-left"></span>返回</a>
+    </div>
+  </div>
+  <div>
+  	<ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options">
+  		<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="(marker.id !== undefined) ? marker.id : 0"></ui-gmap-marker>
+  	</ui-gmap-google-map>
+  </div>
+  <ul class="list-group">
+	  <li class="list-group-item center-align-avatar">
+	  	<a ui-sref="labelHotspot({hotspotId: hotspot.id})"><button class="btn btn-default button-no-outline">标识&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-tags"></span></button></a>
+		<button class="btn btn-default button-no-outline" ng-click="openReviewModal()">评价&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-pencil"></span></button>
+		<button class="btn btn-default button-no-outline" ui-sref="route({destination:hotspot.basicInformation.address})">去这里&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-map-marker"></span></button>	  	
+		<button class="btn btn-default button-no-outline" ng-click="openQuestionnaireModal()">Questionnaire&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-list-alt"></span></button>	  	
+		<button class="btn btn-default button-no-outline" ng-click="openReportModal()">举报&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-exclamation-sign"></span></button>	  	
+	  </li>
+	  <li class="list-group-item great-collapse-fix">
+	  	<span class="panel-title review-attribute-label">基本信息<span class="float-right glyphicon glyphicon-chevron-down" ng-show="showBasicInformation" ng-click="toggleBasicInformation()"></span><span class="float-right glyphicon glyphicon-chevron-up" ng-show="!showBasicInformation" ng-click="toggleBasicInformation()"></span></span>
+	  	<div ng-show="showBasicInformation">
+	  		<p></p>
+		  	<p><span class="review-attribute-label">总结:</span> {{hotspot.basicInformation.summary}}</p>
+		  	<p><span class="review-attribute-label">地址:</span> {{hotspot.basicInformation.address}}</p>
+		  	<p><span class="review-attribute-label">营业时间:</span> {{hotspot.basicInformation.openingHours}}</p>
+		  	<p><span class="review-attribute-label">电话:</span> {{hotspot.basicInformation.telephone}}</p>
+	  	</div>
+	  </li>
+	  <li class="list-group-item great-collapse-fix">
+	  	<span class="panel-title review-attribute-label">评分 ({{hotspot.raters}})&nbsp;&nbsp;<span ng-bind-html="hotspot.roundedRating | reviewStars"></span><span class="float-right glyphicon glyphicon-chevron-down" ng-show="showRatings" ng-click="toggleRatings()"></span><span class="float-right glyphicon glyphicon-chevron-up" ng-show="!showRatings" ng-click="toggleRatings()"></span></span>
+	  	<div ng-show="showRatings">
+		  	<p></p>
+		  	<p>
+		  		<span ng-bind-html="5 | reviewStars"></span>
+		  		<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{hotspot.ratings.fiveStar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{hotspot.ratings.fiveStar}}%;">
+				    {{hotspot.ratings.fiveStar}}%
+				  </div>
+				</div>
+		  	</p>
+		  	<p>
+		  		<span ng-bind-html="4 | reviewStars"></span>
+		  		<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{hotspot.ratings.fourStar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{hotspot.ratings.fourStar}}%;">
+				    {{hotspot.ratings.fourStar}}%
+				  </div>
+				</div>
+		  	</p>
+		  	<p>
+		  		<span ng-bind-html="3 | reviewStars"></span>
+		  		<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{hotspot.ratings.threeStar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{hotspot.ratings.threeStar}}%;">
+				    {{hotspot.ratings.threeStar}}%
+				  </div>
+				</div>
+		  	</p>
+		  	<p>
+		  		<span ng-bind-html="2 | reviewStars"></span>
+				<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{hotspot.ratings.twoStar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{hotspot.ratings.twoStar}}%;">
+				    {{hotspot.ratings.twoStar}}%
+				  </div>
+				</div>
+		  	</p>
+		  	<p>
+		  		<span ng-bind-html="1 | reviewStars"></span>
+		  		<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="{{hotspot.ratings.oneStar}}" aria-valuemin="0" aria-valuemax="100" style="width: {{hotspot.ratings.oneStar}}%;">
+				    {{hotspot.ratings.oneStar}}%
+				  </div>
+				</div>
+		  	</p>
+	  	</div>
+	  </li>
+	  <li class="list-group-item great-collapse-fix">
+	  	<span class="panel-title review-attribute-label">照片视频<span class="float-right glyphicon glyphicon-chevron-down" ng-show="showPhotos" ng-click="togglePhotos()"></span><span class="float-right glyphicon glyphicon-chevron-up" ng-show="!showPhotos" ng-click="togglePhotos()"></span></span>
+	  	<div ng-show="showPhotos">
+		  	<p></p>
+		  	<div ng-repeat="photo in hotspotPhotos">
+		  		<img ng-show="photo.type == 'jpg'" ng-src="{{photo.url}}" class="review-photo"/>
+		  		<span ng-show="photo.type != 'jpg'" ng-click="openMovie(photo.url)" class="glyphicon glyphicon-film big-movie-clip"></span>
+		  	</div>
+	  	</div>
+	  </li>
+	  <li class="list-group-item great-collapse-fix">
+	  	<span class="panel-title review-attribute-label">评价<span class="float-right glyphicon glyphicon-chevron-down" ng-show="showReviews" ng-click="toggleReviews()"></span><span class="float-right glyphicon glyphicon-chevron-up" ng-show="!showReviews" ng-click="toggleReviews()"></span></span>
+	  	<div ng-show="showReviews">
+		  	<p></p>
+		  	<div ng-repeat="review in hotspotReviews">
+		  		<p>"{{review.title}}"</p>
+		  		<p ng-bind-html="review.rating | reviewStars"></p>
+		  		<p>{{review.review}}</p>
+		  		<p>{{review.date}}</p>
+		  	</div>
+	  	</div>
+	  </li>
+  </ul>
+</div>

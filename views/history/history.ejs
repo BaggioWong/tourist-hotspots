@@ -1,0 +1,25 @@
+<div class="panel panel-default panel-size wishlist-panel-size">
+  <div class="panel-heading wishlist-panel-overflow">
+    <span class="panel-title float-left">
+    	搜索历史
+    </span>
+    
+    <form class="form-no-margin float-right">
+  		<input type="text" class="form-control wishlist-search" placeholder="Search" ng-model="historySearchField" ng-change="restoreArray(); searchSearchHistory()">
+ 	</form>    	
+  </div>
+	<ul class="list-group">
+	    <li class="list-group-item great-collapse-fix" ng-repeat="keyword in searchHistory">
+	    	<div class="float-left">
+		    	<p>{{keyword.keyword}}</p>
+	    	</div>
+	    	<div class="float-right">
+	    		<a ui-sref="hotspots({searchKeyword:keyword.keyword})">
+		    		<button class="btn btn-default button-no-outline">
+		    			<span>搜索景点&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-chevron-right"></span></span> 
+		    		</button>
+	    		</a>
+	    	</div>
+	    </li>
+	</ul>
+</div>

@@ -1,0 +1,311 @@
+* {
+	font-family: "Roboto", sans-serif;
+}
+
+body {
+	padding: 60px 10px 0px 10px; /* top offset nav bar */
+
+}
+
+/*
+ *	@page 	login.ejs
+ */
+.panel-size {
+	width: 500px;
+	margin: 15px auto;
+}
+
+.input-margin {
+	margin-bottom: 15px;
+}
+
+.remove-margin {
+	margin-bottom: 0px;
+}
+
+.float-right {
+	float: right;
+}
+
+.register-text {
+	margin-top: 15px;
+	font-size: 12px;
+	float:left;
+}
+
+/*
+ *	@page 	wishlist.ejs
+ */
+.wishlist-panel-size {
+	width: 650px;
+}
+
+.wishlist-panel-overflow {
+	overflow: auto;
+}
+
+.form-no-margin {
+	margin: 0px;
+}
+
+.wishlist-search {
+	width: auto !important;
+	height: 22px !important;
+	font-size: 12px !important;
+}
+
+ .float-left {
+ 	float: left;
+ }
+
+ .glyphicon-size {
+ 	font-size: 11px;
+ }
+
+ .great-collapse-fix {
+ 	overflow: auto;
+ }
+
+ /*
+  *	@page 	avatar.ejs
+  */
+.center-align-avatar {
+	text-align: center;
+}
+
+.avatar-dimensions {
+	border-radius: 100px;
+	width: 200px;
+	height: 200px;
+}
+
+.center-file-chooser {
+	margin: auto;
+}
+
+.avatar-thumbnail {
+	height: 50px;
+	border-radius: 25px !important;
+	margin: 10px auto;
+}
+
+/*
+ *	@page 	hotspots.ejs
+ */	
+.hotspots-filter {
+	height: 20px;
+	font-size: 12px !important;
+	padding: 0px 5px !important;
+	outline: none !important;
+}
+
+.button-no-outline {
+	outline: none !important;
+}
+
+/**
+ *	@page 	singleHotspot.ejs
+ */
+
+.angular-google-map-container { height: 400px; }
+
+.big-movie-clip {font-size: 50px;}
+
+/**
+ *	@page 	movieModal.ejs
+ */
+.video-margin {
+	margin: 30px auto;
+	text-align: center;
+}
+
+/**
+ *	@page 	singleHotspot.ejs
+ */
+ .review-photo {
+ 	width: 100px;
+ 	margin: auto 10px 20px auto;
+ 	float: left;
+ }
+
+ .review-attribute-label {
+ 	font-weight: bold;
+ }
+
+.favourited {
+	border-color: #E53935 !important;
+    background-color: #F44336 !important;
+    color: white !important;
+}
+
+.trailed {
+	color: white !important;
+    background-color: #43A047 !important;
+    border-color: #388E3C !important;
+}
+
+.addedToWishlist {
+	color: white !important;
+    border-color: #FF8F00 !important;
+    background-color: orange !important;
+}
+
+.shared {
+	background-color: #29B6F6 !important;
+    border-color: #039BE5 !important;
+    color: white !important;
+}
+ /**
+  *	@page 	reviewHotspotModal.js
+  */
+.modal-padding {
+ 	padding: 5px 20px;
+}
+
+.textarea-margin {
+	margin-bottom: 20px;
+}
+
+hr.no-margin {
+	margin: 0px;
+}
+
+.form-margin {
+	margin: 10px auto;
+}
+
+.review-thumbnail {
+	height: 200px;
+	margin: 10px auto !important;
+}
+
+/**
+ *	@page 	reportHotspotModal.ejs
+ */
+.report-thumbnail {
+	height: 90px; 
+	margin: auto 10px auto auto !important;
+	display: initial !important;
+}
+
+.report-thumbnails-layer {
+	height: 100px;
+	width: 100px;
+	display:initial !important;
+}
+
+.center-report-thumbnails {
+	text-align: center;
+}
+
+/**
+ *	@page 	hotspotQuestionnaireModal.ejs
+ */
+ .questionnaire-responses {
+ 	margin-left: 10px;
+ }
+
+/**
+ *	@page 	labelHotspot.ejs
+ */	
+
+.marker {
+	margin: auto;
+ 	border-radius: 10px;
+ 	height: 20px;
+ 	width: 20px;
+}
+
+ .red-circle-marker {
+ 	background-color: #EF9A9A;
+ }
+
+.orange-circle-marker {
+ 	background-color: #FFCC80;
+ }
+
+ .yellow-circle-marker {
+ 	background-color: #FFF59D;
+ }
+
+ .green-circle-marker {
+ 	background-color: #A5D6A7;
+ }
+
+.lime-circle-marker {
+ 	background-color: #C5E1A5;
+ }
+
+ .light-blue-circle-marker {
+ 	background-color: #81D4FA;
+ }
+
+ .blue-circle-marker {
+ 	background-color: #9FA8DA;
+ }
+
+.violet-circle-marker {
+ 	background-color: #CE93D8;
+ }
+
+.inactive-circle-marker {
+	background-color: #E0E0E0 !important;
+}
+
+ .label-table {
+ 	margin-top: 10px;
+ 	text-align: center;
+ }
+
+ .label-table td {
+ 	border: none !important;
+ }
+
+ .label-table td {
+ 	width: 25%;
+ }
+
+ /**
+  *	@page 	route.ejs
+  */
+.route-searchbox {
+	width: 160px !important;
+	float: left;
+}
+
+.route-swap {
+	margin: 10px;
+	font-size: 14px;
+	float: left;
+}
+
+.route {
+	margin: auto;
+	text-align: center;
+}
+
+.route-current-location {
+	float: left; 
+	padding: 9px !important;
+	margin-right: 10px;
+}
+
+.current-location-text {
+	color: #2196F3 !important;
+}
+
+.search-route-failed {
+	margin: 20px auto 10px auto !important;
+}
+
+.no-bullet-decoration {
+	list-style: none !important;
+}
+
+.route-detailed-panel {
+	padding: 20px;
+}
+
+img.adp-marker {
+	margin: 10px;
+}

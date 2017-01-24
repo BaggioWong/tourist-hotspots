@@ -1,0 +1,23 @@
+<div class="modal-padding">
+	<h3>评价</h3>
+</div>
+<hr class="no-margin" />
+<form name="hotspotReviewForm" class="form-margin">
+	<div class="modal-padding">	
+		<p>{{"Rating placeholder"}}</p>
+		<textarea class="form-control textarea-margin" placeholder="Review"></textarea>
+		<p>
+			<input type="file" ngf-select class="btn btn-default center-file-chooser" ng-model="avatarFile" name="file"    
+		accept="image/*" ngf-max-size="2MB"> 
+		</p>
+		<p>
+		<img ng-show="hotspotReviewForm.file.$valid" ngf-thumbnail="avatarFile" class="thumbnail review-thumbnail">
+		</p>
+	</div>
+	<div class="modal-padding great-collapse-fix">
+		<div class="float-right">
+	     <button type="button" class="btn btn-default center-file-chooser">提交</button>
+	     <button class='btn btn-default' ng-click='cancel()'>取消</button>
+	     </div>
+	</div>
+</form>

@@ -1,0 +1,41 @@
+<div class="panel panel-default panel-size wishlist-panel-size">
+  <div class="panel-heading wishlist-panel-overflow">
+    <span class="panel-title float-left">
+    	景点
+    </span>
+    
+    <form class="form-no-margin float-right" ng-submit="saveToHistory()">
+  		<input type="text" class="form-control wishlist-search" placeholder="Search" ng-model="hotspotsSearchField" ng-change="searchHotspots()">
+ 	</form>    	
+    	
+    <div class="float-right">
+	    <button class="btn btn-default hotspots-filter" ng-click="selectRatings()">评价&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-star"></span></button>
+	    <button class="btn btn-default hotspots-filter" ng-click="selectFavourites()">收藏&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-heart"></span></button>
+	    <button class="btn btn-default hotspots-filter" ng-click="selectTrail()">足迹&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-road"></span></button>
+	    <button class="btn btn-default hotspots-filter" ng-click="selectWishlist()">心愿单&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-list"></span></button>
+	    <!-- <button class="btn btn-default hotspots-filter" ng-click="selectRecommended()">Recommended&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-thumbs-up"></span></button> -->
+	    <button class="btn btn-default hotspots-filter" ng-click="selectNearby()">附近&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-record"></span></button>
+	    <span>&nbsp;&nbsp;</span>
+    </div>
+  </div>
+	<ul class="list-group">
+	    <li class="list-group-item great-collapse-fix" ng-repeat="hotspot in hotspots | orderBy:selectedFilter:true">
+	    	<div>
+		    	<p>{{hotspot.name}}</p>
+		    	<p ng-show="filters.ratingsSelected" ng-bind-html="hotspot.rating | reviewStars"></p>
+		    	<p ng-show="filters.favouritesSelected">收藏: {{hotspot.favourites}}</p>
+		    	<p ng-show="filters.trailedSelected">足迹: {{hotspot.trailed}}</p>
+		    	<p ng-show="filters.wishlistSelected">心愿单: {{hotspot.wishlist}}</p>
+		    	<p ng-show="filters.recommendationScoreSelected">推荐分数: {{hotspot.recommendationScore}}</p>
+		    	<p ng-show="filters.nearbySelected">距离: {{hotspot.distance.text}}</p>
+	    	</div>
+	    	<div class="float-right">
+	    		<a ui-sref="singleHotspot({hotspotId: hotspot.id, name: hotspot.name})">
+		    		<button class="btn btn-default button-no-outline">
+		    			<span>进入&nbsp;<span class="glyphicon glyphicon-size glyphicon glyphicon-chevron-right"></span></span> 
+		    		</button>
+	    		</a>
+	    	</div>
+	    </li>
+	</ul>
+</div>

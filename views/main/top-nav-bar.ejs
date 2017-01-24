@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="login">旅游景点</a>
+		</div>
+
+		<div ng-show="showMenu">
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a ui-sref="hotspots">旅游景点</a></li>
+					<li><a ui-sref="history">搜索历史</a></li>
+					<li><a ui-sref="route">路线规划</a></li>
+					<li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">账户<span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a ng-click="logout()">注销</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a ui-sref="trail">足迹</a></li>
+			            <li><a ui-sref="wishlist">心愿单</a></li>
+			            <li><a ui-sref="favourites">收藏</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a ui-sref="avatar">头照</a></li>
+			          </ul>
+			        </li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div ng-show="!showMenu">
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a ui-sref="login">登陆</a></li>
+					<li><a ui-sref="register">注册</a></li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</nav>
+
+		        

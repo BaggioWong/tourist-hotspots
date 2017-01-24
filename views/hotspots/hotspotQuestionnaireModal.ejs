@@ -1,0 +1,28 @@
+<div class="modal-padding">
+	<h3>调查问卷</h3>
+</div>
+<hr class="no-margin" />
+<form class="form-margin great-collapse-fix">
+	<div class="modal-padding">
+		<p>你觉得我们的应用容易用吗？</p>
+		<p>
+			<p><input type="radio" ng-model="questions.userFriendlines" value="100%!" /><span class="questionnaire-responses">非常容易</span></p>
+			<p><input type="radio" ng-model="questions.userFriendlines" value="Yup it's great!" /><span class="questionnaire-responses">挺容易</span></p>
+			<p><input type="radio" ng-model="questions.userFriendlines" value="It's okay." /><span class="questionnaire-responses">一般吧.</span></p>
+			<p><input type="radio" ng-model="questions.userFriendlines" value="Not really." /><span class="questionnaire-responses">不容易.</span></p>
+			<p><input type="radio" ng-model="questions.userFriendlines" value="Very difficult to use." /><span class="questionnaire-responses">非常困难.</span></p>
+		</p>
+		<p>&nbsp;</p>
+		<p>如果你有什么建议的话，请留言告诉我们！谢谢！</p>
+		<textarea class="form-control textarea-margin" placeholder="Suggestions"></textarea>
+	</div>
+	<div class="modal-padding">
+		  <div uib-alert class="alert-success" ng-show="showSuccessMsg">{{success.msg}}</div>
+	</div>
+	<div class="modal-padding great-collapse-fix">
+		<div class="float-right">
+	     <button class="btn btn-default" ng-click="submit()">提交</button>
+	     <button class="btn btn-default" ng-click="cancel()">取消</button>
+	     </div>
+	</div>
+</form>

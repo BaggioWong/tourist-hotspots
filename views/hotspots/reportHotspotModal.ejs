@@ -1,0 +1,28 @@
+<div class="modal-padding">
+	<h3>申报问题</h3>
+</div>
+<hr class="no-margin" />
+<form class="form-margin great-collapse-fix">
+	<div class="modal-padding">	
+		<textarea class="form-control textarea-margin" placeholder="Report"></textarea>
+		<p uib-tooltip="Maximum 5 files" tooltip-trigger="'mouseenter'">
+			<input type="file" class="btn btn-default center-file-chooser" multiple name="file" accept="image/*" ngf-max-size="2MB" ngf-select="uploadFiles($files)" ngf-max-files="5">
+		</p>
+		<p>	
+			<div class="center-report-thumbnails">
+				<div ng-repeat="current in files" class="report-thumbnails-layer">
+					<img ng-show="hotspotReviewForm.file.$valid" ngf-thumbnail="current" class="thumbnail report-thumbnail">
+				</div>
+			</div>
+		</p>
+	</div>
+	<div class="modal-padding">
+		  <div uib-alert class="alert-success" ng-show="showSuccessMsg">{{success.msg}}</div>
+	</div>
+	<div class="modal-padding great-collapse-fix">
+		<div class="float-right">
+	     <button class="btn btn-default" ng-click="submit()">提交</button>
+	     <button class="btn btn-default" ng-click="cancel()">取消</button>
+	     </div>
+	</div>
+</form>
