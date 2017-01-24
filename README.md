@@ -11,6 +11,8 @@ Functions include:
 - Navigating to the tourist hotspot (from current location, from arbitrary location, with detailed route information)
 - Search history available as well 
 
+This is written with Angular, data is mocked for this demo. 
+
 # To run
 Navigate to the home directory and run
 `npm start`
